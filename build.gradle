@@ -1,0 +1,46 @@
+plugins {
+    id 'net.minecraftforge.gradle' version '6.0.18'
+    id 'maven-publish'
+}
+
+repositories {
+    mavenCentral()
+    maven {
+        url = 'https://files.minecraftforge.net/maven'
+    }
+}
+
+ext.group = 'com.jjplatt250'
+archivesBaseName = 'animatronicmodemod'
+version = '1.0.0'
+
+sourceCompatibility = JavaVersion.VERSION_17
+
+minecraft {
+    mappings channel: 'official', version: '1.20.1'
+    runs {
+        client {
+            workingDirectory project.file('run')
+            property 'forge.logging.markers', 'REGISTRIES'
+        }
+        server {
+            workingDirectory project.file('run')
+            property 'forge.logging.markers', 'REGISTRIES'
+        }
+    }
+}
+
+dependencies {
+    minecraft 'net.minecraftforge:forge:1.20.1-47.1.0'
+    minecraft 'net.minecraft:client:1.20.1'
+    minecraft 'net.minecraft:server:1.20.1'
+}
+
+processResources {
+    inputs.property 'version', project.version
+    inputs.property 'mcversion', project.minecraft.version
+    from(sourceSets.main.resources.srcDirs) {
+        include 'META-INF/mods.toml'
+        expand 'version':project.version, 'mcversion':project.minecraft.version
+    }
+}

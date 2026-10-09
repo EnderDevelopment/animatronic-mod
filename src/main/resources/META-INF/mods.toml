@@ -1,0 +1,28 @@
+modLoader = "javafml"
+loaderVersion = "[47,)"
+license = "All rights reserved"
+
+[[mods]]
+modId = "animatronicmodemod"
+version = "${file.jarVersion}"
+displayName = "Animatronic Mod"
+logoFile = "animatronicmodemod.png"
+credits = "jjplatt250"
+authors = "jjplatt250"
+description = '''
+A mod that adds animatronics with pathfinding, Faz Controll settings, a FNaF door, a Puppet Box, an Animatronic Mode item, a Battery item, a generator function, and GUI integration.
+'''
+
+[[dependencies.animatronicmodemod]]
+modId = "forge"
+mandatory = true
+versionRange = "[47,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.animatronicmodemod]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[1.20.1,1.21)"
+ordering = "NONE"
+side = "BOTH"
